@@ -11,12 +11,18 @@ INSERT INTO permissions (name, description) VALUES
 ('delete_routine', 'Delete workout routines'),
 ('manage_users', 'Manage user accounts'),
 ('manage_roles', 'Manage roles and permissions'),
-('manage_exercises', 'Manage exercise catalog');
+('manage_exercises', 'Manage exercise catalog'),
+('create_activity', 'Registrar una sesion de entrenamiento y sus ejercicios'),
+('read_activity', 'Consultar las sesiones de entrenamiento y sus ejercicios'),
+('update_activity', 'Actualizar las sesiones de entrenamiento y sus ejercicios'),
+('delete_activity', 'Eliminar las sesiones de entrenamiento y sus ejercicios');
 
 -- Insert Role-Permission relationships
 INSERT INTO role_permissions (role_id, permission_id) VALUES
-(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), -- Admin has all permissions
-(2, 1), (2, 2), (2, 3), (2, 4);                         -- Regular user can manage their routines
+-- Admin: tiene todos los permisos del sistema
+(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8), (1, 9), (1, 10), (1, 11),
+-- Usuario: gestiona sus propias rutinas (1-4) y su actividad (8-11)
+(2, 1), (2, 2), (2, 3), (2, 4), (2, 8), (2, 9), (2, 10), (2, 11);
 
 -- Insert Users
 INSERT INTO users (username, email, password_hash, bio, role_id, created_at) VALUES

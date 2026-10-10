@@ -5,6 +5,11 @@ import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
+import { ExerciseModule } from './training/exercise/exercise.module';
+import { RoutineModule } from './training/routine/routine.module';
+import { RoutineExerciseModule } from './training/routine-exercise/routine-exercise.module';
+import { ActivityLogModule } from './training/activity-log/activity-log.module';
+import { ActivityExerciseModule } from './training/activity-exercise/activity-exercise.module';
 
 @Module({
     imports: [
@@ -25,6 +30,11 @@ import { AuthModule } from './auth/auth.module';
                 }) as TypeOrmModuleOptions,
         }),
         AuthModule,
+        ExerciseModule,
+        RoutineModule,
+        RoutineExerciseModule,
+        ActivityLogModule,
+        ActivityExerciseModule,
     ],
 
     controllers: [AppController],
